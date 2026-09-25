@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI龙虾 - 你的智能桌面宠物助手</title>
+<title>浮灵饰界 - 你的智能桌面宠物助手</title>
+<link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
 <style>
 /* ===== CSS 变量 ===== */
@@ -1275,6 +1276,17 @@ input, textarea {
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
+/* ===== 实时桌面宠物（灵汐） ===== */
+.pet-live-wrap{position:relative;overflow:hidden;}
+.pet-stage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;}
+.pet-fox-wrap{width:76%;max-width:270px;transform-origin:50% 88%;animation:petBreath 3.8s ease-in-out infinite;cursor:pointer;will-change:transform;z-index:2;}
+.pet-fox-wrap.bounce{animation:petBounce .55s cubic-bezier(.3,1.5,.5,1);}
+.pet-fox{width:100%;height:auto;display:block;user-select:none;pointer-events:none;filter:drop-shadow(0 16px 26px rgba(0,0,0,.35));transform-origin:50% 85%;transition:transform .3s cubic-bezier(.2,.6,.3,1);}
+@keyframes petBreath{0%,100%{transform:translateY(0) rotate(0deg) scale(1);}50%{transform:translateY(-8px) rotate(-1.6deg) scale(1.02);}}
+@keyframes petBounce{0%{transform:translateY(0) scale(1,1);}40%{transform:translateY(-48px) scale(1.06,.92);}70%{transform:translateY(-4px) scale(.94,1.06);}100%{transform:translateY(0) scale(1,1);}}
+.pet-bubble{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.97);color:#333;border-radius:16px;padding:8px 14px;font-size:13px;white-space:nowrap;opacity:0;pointer-events:none;box-shadow:0 6px 16px rgba(0,0,0,.2);z-index:3;transition:opacity .25s ease,transform .25s ease;font-family:'Noto Sans SC',sans-serif;}
+.pet-bubble::after{content:'';position:absolute;left:50%;bottom:-7px;transform:translateX(-50%);border:8px solid transparent;border-top-color:rgba(255,255,255,.97);border-bottom:0;}
+.pet-bubble.show{opacity:1;transform:translateX(-50%) translateY(-6px);}
 </style>
 </head>
 <body>
@@ -1336,8 +1348,8 @@ input, textarea {
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <a href="#" class="nav-logo">
-      <img src="images/app-icon.png" alt="AI龙虾" class="nav-logo-img">
-      <span class="nav-logo-text">AI龙虾</span>
+      <img src="images/app-icon.png" alt="浮灵饰界" class="nav-logo-img">
+      <span class="nav-logo-text">浮灵饰界</span>
     </a>
     <ul class="nav-links">
       <li><a href="#features">功能特性</a></li>
@@ -1345,7 +1357,7 @@ input, textarea {
       <li><a href="#screenshots">界面截图</a></li>
       <li><a href="#download">下载</a></li>
     </ul>
-    <a href="https://github.com/yonggezx/ai-lobster-update/releases/latest/download/AI._Setup_v1.0.7.exe" class="nav-cta" target="_blank" rel="noopener">立即下载</a>
+    <a href="https://github.com/yonggezx/fuling-shijie-update/releases/latest/download/%E6%B5%AE%E7%81%B5%E9%A5%B0%E7%95%8C_Setup_v1.0.7.exe" class="nav-cta" target="_blank" rel="noopener">立即下载</a>
   </div>
 </nav>
 
@@ -1359,17 +1371,17 @@ input, textarea {
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
-        全新 v1.0 正式发布
+        全新品牌升级 · v1.0.7 正式版
       </div>
       <h1 class="hero-title">
         你的桌面，<br>
-        住着一只<span class="hero-title-highlight">AI龙虾</span>
+        住着一只<span class="hero-title-highlight">灵汐</span>
       </h1>
       <p class="hero-subtitle">
-        集 Live2D 虚拟形象、本地 AI 推理、自然语言系统操作为一体的智能桌面宠物助手。让你的电脑不再冰冷。
+        集 Live2D/MMD 虚拟形象、本地 AI 推理、自然语言系统操作、Windows 界面美化为一体的智能桌面宠物助手。让你的电脑不再冰冷，还更好看。
       </p>
       <div class="hero-actions">
-        <a href="https://github.com/yonggezx/ai-lobster-update/releases/latest/download/AI._Setup_v1.0.7.exe" class="btn-primary" target="_blank" rel="noopener">
+        <a href="https://github.com/yonggezx/fuling-shijie-update/releases/latest/download/%E6%B5%AE%E7%81%B5%E9%A5%B0%E7%95%8C_Setup_v1.0.7.exe" class="btn-primary" target="_blank" rel="noopener">
           <svg width="18" height="18"><use href="#icon-download"/></svg>
           免费下载
         </a>
@@ -1384,11 +1396,11 @@ input, textarea {
         </div>
         <div class="hero-stat">
           <span class="hero-stat-number">50+</span>
-          <span class="hero-stat-label">Live2D模型兼容</span>
+          <span class="hero-stat-label">Live2D/MMD 模型兼容</span>
         </div>
         <div class="hero-stat">
-          <span class="hero-stat-number">0</span>
-          <span class="hero-stat-label">隐私上传</span>
+          <span class="hero-stat-number">5</span>
+          <span class="hero-stat-label">系统界面可美化</span>
         </div>
       </div>
     </div>
@@ -1399,10 +1411,15 @@ input, textarea {
           <span class="pet-card-dot red"></span>
           <span class="pet-card-dot yellow"></span>
           <span class="pet-card-dot green"></span>
-          <span style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.7);">AI龙虾 - 桌面宠物</span>
+          <span style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.7);">浮灵饰界 - 桌面宠物</span>
         </div>
-        <div class="pet-card-body" style="padding:0;display:flex;align-items:center;justify-content:center;background:#1a1a2e;height:calc(100% - 60px);">
-          <img src="images/pet-window.png" alt="AI龙虾宠物窗口" style="max-width:100%;max-height:100%;object-fit:contain;">
+        <div class="pet-card-body pet-live-wrap" style="padding:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#141428,#1f1f38);height:calc(100% - 60px);">
+          <div class="pet-stage" id="petStage">
+            <div class="pet-fox-wrap" id="petFoxWrap">
+              <img src="images/pet-lingxi-512.png" alt="灵汐" class="pet-fox" id="petFox" draggable="false">
+            </div>
+            <div class="pet-bubble" id="petBubble"></div>
+          </div>
         </div>
       </div>
       <div class="chat-bubble chat-bubble-2">好的，已为你打开~</div>
@@ -1421,13 +1438,23 @@ input, textarea {
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon orange"><svg width="28" height="28"><use href="#icon-palette"/></svg></div>
-        <h3 class="feature-title">Live2D 虚拟形象</h3>
-        <p class="feature-desc">完美兼容所有 Live2D 模型，支持 Cubism 2.0/3.0/4.0。丰富的动作与表情系统，让你的宠物活灵活现。点击不同部位还有惊喜反应。</p>
+        <h3 class="feature-title">Live2D / MMD 虚拟形象</h3>
+        <p class="feature-desc">完美兼容 Live2D（Cubism 2.0/3.0/4.0）与 MMD 模型。内置可视化动作编辑器，支持 AI 生成动作，丰富的表情与连锁动作系统，点击不同部位还有惊喜反应。</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon blue"><svg width="28" height="28"><use href="#icon-brain"/></svg></div>
         <h3 class="feature-title">本地 AI 推理</h3>
-        <p class="feature-desc">支持 Ollama 本地大模型运行，对话数据完全不上传，隐私安全有保障。同时兼容 OpenAI、DeepSeek、阿里云百炼等云端 API。</p>
+        <p class="feature-desc">支持 Ollama，也可直接导入 GGUF 模型用内置 llama.cpp 引擎运行，对话数据完全不上传。同时兼容 OpenAI、DeepSeek、阿里云百炼等云端 API。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon purple"><svg width="28" height="28"><use href="#icon-tool"/></svg></div>
+        <h3 class="feature-title">Agent 智能体</h3>
+        <p class="feature-desc">28 个内置工具：文件读写、系统命令、软件管理、待办清单、长期记忆……支持多角色切换与多轮推理，真正能干活的 AI。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon green"><svg width="28" height="28"><use href="#icon-lightbulb"/></svg></div>
+        <h3 class="feature-title">Windows 界面美化</h3>
+        <p class="feature-desc">任务栏、开始菜单、通知中心、托盘弹窗、快速设置五大系统界面，均支持透明、模糊、亚克力效果，一键切换，退出自动还原原生外观。</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon purple"><svg width="28" height="28"><use href="#icon-keyboard"/></svg></div>
@@ -1435,31 +1462,21 @@ input, textarea {
         <p class="feature-desc">用自然语言指挥电脑：打开软件、管理文件、执行命令、安装卸载。AI 会理解你的意图并自动执行，无需记忆复杂指令。</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon green"><svg width="28" height="28"><use href="#icon-tool"/></svg></div>
-        <h3 class="feature-title">Agent 智能体</h3>
-        <p class="feature-desc">内置多角色智能体系统，程序员、研究员、文案写手、运维工程师一键切换。支持工具调用、文件读写、多轮推理，真正能干活的 AI。</p>
-      </div>
-    </div>
-      <div class="feature-card">
-        <div class="feature-icon orange"><svg width="28" height="28"><use href="#icon-heart"></svg></div>
+        <div class="feature-icon orange"><svg width="28" height="28"><use href="#icon-heart"/></svg></div>
         <h3 class="feature-title">点击互动</h3>
         <p class="feature-desc">点击宠物不同部位有惊喜反应，摸头、戳脸、点身体都不一样。右键宠物打开快捷菜单，快速切换模型、隐藏或设置。</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon blue"><svg width="28" height="28"><use href="#icon-keyboard"></svg></div>
+        <div class="feature-icon blue"><svg width="28" height="28"><use href="#icon-keyboard"/></svg></div>
         <h3 class="feature-title">键盘猫模式</h3>
         <p class="feature-desc">导入 Bongo Cat 模型后，宠物会跟着你的打字节奏敲键盘，窗口失焦也能响应。工作时的最佳摸鱼搭子。</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon purple"><svg width="28" height="28"><use href="#icon-brain"></svg></div>
-        <h3 class="feature-title">语音对话</h3>
-        <p class="feature-desc">支持语音输入对话，动口不动手。流式输出实时显示思考过程，工具调用、文件操作一目了然。</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon green"><svg width="28" height="28"><use href="#icon-palette"></svg></div>
+        <div class="feature-icon green"><svg width="28" height="28"><use href="#icon-palette"/></svg></div>
         <h3 class="feature-title">个性主题</h3>
         <p class="feature-desc">支持跟随系统深浅色，多种主题色一键切换。宠物大小、透明度、渲染帧率都能自定义，打造专属桌面体验。</p>
       </div>
+    </div>
   </div>
 </section>
 
@@ -1483,14 +1500,14 @@ input, textarea {
         <div class="guide-step-number">02</div>
         <div class="guide-step-content">
           <h3>配置 AI 模型</h3>
-          <p>打开 AI 配置页面，选择本地 Ollama 模型或云端 API（OpenAI、DeepSeek、阿里云百炼等）。一键接入预设配置，也可手动添加自定义模型。</p>
+          <p>打开 AI 配置页面，选择本地模型（Ollama 或直接导入 GGUF 模型用内置引擎运行）或云端 API（OpenAI、DeepSeek、阿里云百炼等）。一键接入预设配置，也可手动添加自定义模型。</p>
         </div>
       </div>
       <div class="guide-step">
         <div class="guide-step-number">03</div>
         <div class="guide-step-content">
           <h3>开始对话</h3>
-          <p>在对话页面与 AI 龙虾交流，支持自然语言操作系统、文件管理、代码编写等。开启 Agent 模式后，AI 可自动调用工具完成复杂任务。</p>
+          <p>在对话页面与 灵汐交流，支持自然语言操作系统、文件管理、代码编写等。开启 Agent 模式后，AI 可自动调用工具完成复杂任务。</p>
         </div>
       </div>
     </div>
@@ -1516,12 +1533,13 @@ input, textarea {
     </div>
     <div class="showcase-grid">
       <div class="showcase-content">
-        <h3>与 AI 龙虾对话，就像和朋友聊天</h3>
+        <h3>与 灵汐对话，就像和朋友聊天</h3>
         <p>支持流式输出，思考过程实时可见。工具调用、文件操作、系统命令都能在对话中完成，AI 会一步步展示它的思考和执行过程。</p>
         <ul class="showcase-list">
-          <li>流式对话输出，响应零延迟</li>
-          <li>思考过程透明可见，AI 不再是黑盒</li>
+          <li>流式对话输出，思考过程透明可见</li>
           <li>工具调用卡片，执行过程一目了然</li>
+          <li>Agent 自动维护待办清单，交活必对账</li>
+          <li>长期记忆，越用越懂你</li>
           <li>支持文件拖拽上传，AI 自动读取分析</li>
           <li>多角色智能体，按需切换专业能力</li>
         </ul>
@@ -1532,10 +1550,10 @@ input, textarea {
             <span class="pet-card-dot red"></span>
             <span class="pet-card-dot yellow"></span>
             <span class="pet-card-dot green"></span>
-            <span style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.7);">AI龙虾 - 智能对话</span>
+            <span style="margin-left:8px;font-size:12px;color:rgba(255,255,255,0.7);">浮灵饰界 - 智能对话</span>
           </div>
           <div style="padding:0;background:#0d0d1a;display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;overflow:hidden;">
-            <img src="images/ai-chat.png" alt="AI龙虾智能对话界面" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+            <img src="images/ai-chat.png" alt="浮灵饰界智能对话界面" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
           </div>
         </div>
       </div>
@@ -1559,7 +1577,7 @@ input, textarea {
         </div>
         <div class="gallery-item-caption">
           <h4>AI 配置</h4>
-          <p>一键接入主流大模型：DeepSeek、OpenAI、智谱、Kimi 等开箱即用，也支持 Ollama 本地模型，API Key 本地存储，安全省心。</p>
+          <p>一键接入主流大模型：DeepSeek、OpenAI、智谱、Kimi 等开箱即用；本地支持 Ollama 和内置 llama.cpp 引擎（GGUF 模型直接导入），API Key 本地存储，安全省心。</p>
         </div>
       </div>
       <div class="gallery-item">
@@ -1568,7 +1586,7 @@ input, textarea {
         </div>
         <div class="gallery-item-caption">
           <h4>模型管理</h4>
-          <p>一键导入 Live2D 模型，自动识别动作和表情，支持点击部位互动，让你的宠物活灵活现。</p>
+          <p>一键导入 Live2D / MMD 模型，自动识别动作和表情，内置可视化动作编辑器，支持点击部位互动，让你的宠物活灵活现。</p>
         </div>
       </div>
       <div class="gallery-item">
@@ -1577,7 +1595,7 @@ input, textarea {
         </div>
         <div class="gallery-item-caption">
           <h4>设置中心</h4>
-          <p>AI 配置、主题切换、宠物设置、更新管理一应俱全，支持跟随系统深浅色，个性化你的体验。</p>
+          <p>桌宠外观、任务栏与开始菜单透明效果、主题切换、更新管理一应俱全，支持跟随系统深浅色，个性化你的体验。</p>
         </div>
       </div>
     </div>
@@ -1588,19 +1606,19 @@ input, textarea {
 <section class="section download" id="download">
   <div class="section-container">
     <div class="download-card">
-      <h2>现在就把 AI 龙虾领回家</h2>
+      <h2>现在就把 灵汐领回家</h2>
       <p>Windows 10/11 免费下载，无需注册，开箱即用</p>
       <div class="download-buttons">
-        <a href="https://github.com/yonggezx/ai-lobster-update/releases/latest/download/AI._Setup_v1.0.7.exe" class="btn-white" target="_blank" rel="noopener">
+        <a href="https://github.com/yonggezx/fuling-shijie-update/releases/latest/download/%E6%B5%AE%E7%81%B5%E9%A5%B0%E7%95%8C_Setup_v1.0.7.exe" class="btn-white" target="_blank" rel="noopener">
           <svg width="18" height="18"><use href="#icon-download"/></svg>
           Windows 下载
         </a>
-        <a href="https://github.com/yonggezx/ai-lobster-update" class="btn-outline-white" target="_blank" rel="noopener">
+        <a href="https://github.com/yonggezx/fuling-shijie-update" class="btn-outline-white" target="_blank" rel="noopener">
           <svg width="18" height="18"><use href="#icon-github"/></svg>
           GitHub 仓库
         </a>
       </div>
-      <div class="download-info">v1.0.7 · 约 120MB · 支持 Windows 10/11 64位 · <a href="https://github.com/yonggezx/ai-lobster-update/releases/latest" target="_blank" style="color:rgba(255,255,255,0.8);text-decoration:underline;">查看历史版本</a></div>
+      <div class="download-info">v1.0.7 · 约 120MB · 支持 Windows 10/11 64位 · <a href="https://github.com/yonggezx/fuling-shijie-update/releases/latest" target="_blank" style="color:rgba(255,255,255,0.8);text-decoration:underline;">查看历史版本</a></div>
     </div>
   </div>
 </section>
@@ -1610,7 +1628,7 @@ input, textarea {
   <div class="footer-container">
     <div class="footer-top">
       <div class="footer-brand">
-        <h3><img src="images/app-icon.png" alt="" style="width:24px;height:24px;border-radius:4px;vertical-align:middle;margin-right:8px;">AI龙虾</h3>
+        <h3><img src="images/logo-pink.png" alt="" style="width:24px;height:24px;border-radius:4px;vertical-align:middle;margin-right:8px;">浮灵饰界</h3>
         <p>智能桌面宠物助手，让 AI 陪伴你的每一天。开源免费，隐私优先，本地运行。</p>
       </div>
       <div class="footer-col">
@@ -1636,15 +1654,15 @@ input, textarea {
         <h4>联系我们</h4>
         <ul>
           <li><a href="javascript:void(0)" onclick="openModal('contact')">联系方式</a></li>
-          <li><a href="https://github.com/yonggezx/ai-lobster-update" target="_blank" rel="noopener">GitHub 仓库</a></li>
+          <li><a href="https://github.com/yonggezx/fuling-shijie-update" target="_blank" rel="noopener">GitHub 仓库</a></li>
           <li><a href="javascript:void(0)" onclick="openModal('feedback')">问题反馈</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 AI龙虾. 基于 MIT 协议开源</span>
+      <span>© 2026 浮灵饰界. 基于 MIT 协议开源</span>
       <span id="footer-version">v1.0.7</span>
-      <span>Made with <svg width="14" height="14" style="vertical-align:middle;display:inline-block;margin:0 2px;"><use href="#icon-heart"/></svg> by AI Lobster Team</span>
+      <span>Made with <svg width="14" height="14" style="vertical-align:middle;display:inline-block;margin:0 2px;"><use href="#icon-heart"/></svg> by 浮灵饰界 Team</span>
     </div>
   </div>
 </footer>
@@ -1678,15 +1696,16 @@ const modalContents = {
     title: '使用文档',
     body: `
       <h4>快速开始</h4>
-      <p>AI龙虾是一款智能桌面宠物助手，集成了 Live2D 虚拟形象、本地 AI 推理和自然语言系统操作能力。</p>
+      <p>浮灵饰界是一款智能桌面宠物助手，集成了 Live2D/MMD 虚拟形象、本地 AI 推理、自然语言系统操作和 Windows 界面美化能力。</p>
       <h4>主要功能</h4>
       <ul>
-        <li><strong>AI 对话</strong>：支持本地 Ollama 和云端 API，流式输出，Agent 模式可调用工具</li>
-        <li><strong>桌面宠物</strong>：Live2D 模型展示，点击互动，右键快捷菜单</li>
-        <li><strong>模型管理</strong>：导入 Live2D 模型，管理动作和表情</li>
+        <li><strong>AI 对话</strong>：支持本地模型（Ollama / 内置 llama.cpp 引擎）和云端 API，流式输出，Agent 模式可调用工具</li>
+        <li><strong>桌面宠物</strong>：Live2D / MMD 模型展示，点击互动，右键快捷菜单</li>
+        <li><strong>模型管理</strong>：导入模型，内置可视化动作编辑器，支持 AI 生成动作</li>
         <li><strong>文件管理</strong>：通过自然语言管理本地文件</li>
         <li><strong>系统终端</strong>：AI 可执行系统命令</li>
         <li><strong>软件管理</strong>：安装、卸载、启动软件</li>
+        <li><strong>界面美化</strong>：任务栏、开始菜单、通知中心、托盘弹窗、快速设置透明/模糊/亚克力效果</li>
       </ul>
       <h4>快捷键</h4>
       <ul>
@@ -1700,7 +1719,7 @@ const modalContents = {
     title: '模型导入指南',
     body: `
       <h4>支持的模型格式</h4>
-      <p>AI龙虾支持所有标准 Live2D 模型，包括 Cubism 2.0、3.0 和 4.0 版本。</p>
+      <p>浮灵饰界支持 Live2D 模型（Cubism 2.0 / 3.0 / 4.0）和 MMD 模型（.pmx / .pmd），并内置 Bongo Cat 键盘猫模式。</p>
       <h4>导入步骤</h4>
       <ol>
         <li>打开应用，进入「模型管理」页面</li>
@@ -1716,6 +1735,8 @@ const modalContents = {
         <li>动作文件（.motion3.json）可选，放在 motions 目录</li>
         <li>物理文件（.physics3.json）可选</li>
       </ul>
+      <h4>动作编辑器</h4>
+      <p>在「模型管理」点击模型可打开可视化动作编辑器：3D 实时预览、时间轴关键帧、骨骼旋转与表情调整，也可以让 AI 在现有动作基础上生成新动作。</p>
       <h4>常见问题</h4>
       <p>如果模型加载失败，请检查配置文件路径是否正确，纹理图片是否完整。部分模型可能需要手动调整缩放和位置参数。</p>
     `
@@ -1723,13 +1744,11 @@ const modalContents = {
   'ai-config': {
     title: 'AI 配置教程',
     body: `
-      <h4>本地模型（Ollama）</h4>
+      <h4>本地模型（无需上传，隐私优先）</h4>
+      <p>两种方式：</p>
       <ol>
-        <li>安装 Ollama：从 <code>ollama.com</code> 下载并安装</li>
-        <li>拉取模型：运行 <code>ollama pull qwen3:8b</code></li>
-        <li>打开 AI龙虾，进入「AI 配置」页面</li>
-        <li>选择「Ollama」提供商，点击「一键接入」</li>
-        <li>选择已安装的模型，保存配置</li>
+        <li><strong>Ollama</strong>：安装 Ollama 后 <code>ollama pull qwen3:8b</code>，在「AI 配置」选择 Ollama 提供商一键接入</li>
+        <li><strong>内置引擎</strong>：在 AI 配置页直接导入 GGUF 模型文件，应用会用内置 llama.cpp 引擎自动启动本地服务，空闲 30 秒自动释放显存</li>
       </ol>
       <h4>云端 API</h4>
       <p>支持以下云端提供商：</p>
@@ -1744,13 +1763,13 @@ const modalContents = {
         <li><strong>自定义</strong>：支持任何 OpenAI 兼容接口</li>
       </ul>
       <h4>Agent 模式</h4>
-      <p>开启 Agent 模式后，AI 可以调用以下工具：</p>
+      <p>开启 Agent 模式后，AI 可以调用 28 个内置工具，包括：</p>
       <ul>
-        <li>执行系统命令（run_shell）</li>
-        <li>读取文件（read_file）</li>
-        <li>写入文件（write_file）</li>
-        <li>获取系统信息（get_system_info）</li>
-        <li>宠物动作控制（pet_action）</li>
+        <li>执行系统命令、读写文件、获取系统信息</li>
+        <li>宠物动作控制、模型管理</li>
+        <li>待办清单（自动规划并逐项推进任务）</li>
+        <li>长期记忆（记住你的偏好和上下文）</li>
+        <li>UI 截图与自验证（AI 能"看到"界面并自查）</li>
       </ul>
       <p>可在设置中配置工具自动授权，避免每次确认。</p>
     `
@@ -1796,7 +1815,7 @@ const modalContents = {
         <div class="contact-icon github"><svg width="24" height="24"><use href="#icon-github"/></svg></div>
         <div class="contact-info">
           <h5>GitHub</h5>
-          <a href="https://github.com/yonggezx/ai-lobster-update" target="_blank" rel="noopener">github.com/yonggezx/ai-lobster-update</a>
+          <a href="https://github.com/yonggezx/fuling-shijie-update" target="_blank" rel="noopener">github.com/yonggezx/fuling-shijie-update</a>
         </div>
       </div>
       <p style="margin-top:20px;color:var(--text-muted);font-size:13px;">工作时间：周一至周五 9:00-18:00，我们会尽快回复您的问题。</p>
@@ -1827,30 +1846,22 @@ const modalContents = {
   changelog: {
     title: '更新日志',
     body: `
-      <h4>v1.0.7（最新）</h4>
+      <h4>v1.0.7（2026-09-12 · 最新）</h4>
       <ul>
-        <li>新增 Agent 智能体模式，支持工具调用</li>
-        <li>新增多角色智能体系统，6个预设角色</li>
-        <li>优化本地 AI 模型显存释放</li>
-        <li>修复模型闲时动作异常问题</li>
-        <li>新增跟随系统深浅色主题</li>
-        <li>优化更新系统，支持增量补丁</li>
+        <li>品牌全面升级：「AI龙虾」正式更名为「浮灵饰界」</li>
+        <li>该享受时光了 —— 全新视觉与体验</li>
       </ul>
-      <h4>v1.0.6</h4>
+      <h4>v1.0.4</h4>
       <ul>
-        <li>新增 LobeHub 模型图标集成</li>
-        <li>优化 AI 对话流式输出</li>
-        <li>新增文件拖拽上传功能</li>
-        <li>修复多个已知问题</li>
+        <li>Bongo Cat 键盘猫模型适配上线</li>
+        <li>MMD 动作编辑器：3D 实时预览 + 可视化时间轴，支持 AI 生成/微调动作</li>
+        <li>连锁动作与摸鱼待机动作配置</li>
+        <li>模型渲染清晰度自由调节</li>
+        <li>AI 识别能力升级，听得懂中文骨骼表情名</li>
+        <li>数十项稳定性修复</li>
       </ul>
-      <h4>v1.0.5</h4>
-      <ul>
-        <li>新增 Live2D 模型点击部位互动</li>
-        <li>优化模型导入流程</li>
-        <li>新增右键快捷菜单</li>
-        <li>性能优化和稳定性提升</li>
-      </ul>
-      <p style="margin-top:16px;color:var(--text-muted);font-size:13px;">完整更新日志请在应用内「关于」页面查看。</p>
+      <h4>更早版本</h4>
+      <p style="color:var(--text-muted);font-size:13px;">v1.0.1 ~ v1.0.3 的完整更新日志请在应用内「关于」页面查看。</p>
     `
   }
 };
@@ -1919,5 +1930,36 @@ document.querySelectorAll('.feature-card, .showcase-content, .showcase-visual').
     <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
+<script>
+// 实时桌面宠物（灵汐）
+(function(){
+  var wrap = document.getElementById('petFoxWrap');
+  var fox  = document.getElementById('petFox');
+  var bubble = document.getElementById('petBubble');
+  if (!fox || !wrap || !bubble) return;
+  var phrases=['你好呀，我是灵汐~','点我可以跟我互动哦','今天想聊点什么呢？','要一直元气满满呀','我在呢，随时听候差遣~','嘿嘿，别戳我痒痒~'];
+  var stage = wrap.parentElement;
+  var t2=null;
+  function say(t){ bubble.textContent=t; bubble.classList.add('show'); clearTimeout(t2); t2=setTimeout(function(){bubble.classList.remove('show');},2000); }
+  var lastMove=0;
+  stage.addEventListener('mousemove', function(e){
+    var r=stage.getBoundingClientRect();
+    var dx=(e.clientX-r.left)/r.width-0.5;
+    var dy=(e.clientY-r.top)/r.height-0.5;
+    fox.style.transform='rotateY('+(dx*10).toFixed(1)+'deg) translateX('+(dx*6).toFixed(1)+'px) rotateX('+(-dy*8).toFixed(1)+'deg)';
+    var now=Date.now();
+    if(now-lastMove>2600 && Math.abs(dx)<0.4 && dy>-0.1){ lastMove=now; say(phrases[(Math.random()*phrases.length)|0]); }
+  });
+  stage.addEventListener('mouseleave', function(){ fox.style.transform=''; });
+  stage.addEventListener('click', function(e){
+    if(e.target===bubble) return;
+    wrap.classList.remove('bounce'); void wrap.offsetWidth; wrap.classList.add('bounce');
+    setTimeout(function(){wrap.classList.remove('bounce');},600);
+    var tips=['嘿嘿~','好痒呀~','加油鸭！','你好呀！','我超喜欢你的~','再点我可要打滚啦~'];
+    say(tips[(Math.random()*tips.length)|0]);
+  });
+  setInterval(function(){ if(bubble.classList.contains('show')) return; if(Math.random()<0.4) say(phrases[(Math.random()*phrases.length)|0]); },6500);
+})();
+</script>
 </body>
 </html>
